@@ -1,0 +1,32 @@
+{% extends 'basics.html' %}
+
+{% block css %}
+
+.column {
+    float:center;
+    width:16.66%;
+    }
+
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    {% for i in movie %}
+        <div class="column" style="padding:9px; border-bottom:1px solid darkgrey ;">
+          <article style="border:1px solid darkgrey;;">
+              <div class="movie-image">
+                  <a style="text-decoration:none" href="downloadpage/{{i.id}}">
+                      <img src="/media/{{i.movie_img}}" style="width:200px; height:100 px; border-bottom:1px solid darkgrey;">
+                      <div class="desc" style="color:darkgrey;">
+                      <h4>{{i.movie_name}}</h4>
+                      <p>{{i.movie_year}}</p>
+                      </div>
+                  </a>
+              </div>
+          </article>
+    </div>
+    {% endfor %}
+
+{% endblock %}
+

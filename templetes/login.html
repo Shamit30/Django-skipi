@@ -1,0 +1,44 @@
+{%extends 'basics.html' %}
+{% block title %} SkipyMovie {% endblock %}
+  
+
+{%block css%}
+.mb-3 {
+align-items: center;
+padding-right:25em;
+padding-left:15em;
+margin-top:20px;
+color:darkgrey;
+}
+.btn {
+margin-left:15em;
+}
+
+{%endblock%}
+
+{% block body %}
+  
+<form action="/login" method="post">
+  {% csrf_token %}
+    <div class="mb-3">
+      <label for="loginusername" class="form-label">Username</label>
+      <input type="text" class="form-control" id="loginusername" name="loginusername" required>
+      <div id="loginusername" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="loginpassword" class="form-label">Password</label>
+      <input type="password" class="form-control" id="loginpassword" name="loginpassword" required>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <!-- <div class="signup">
+      New to Skipy! Click here to signup
+  </div> -->
+  <!-- <a href="signup">
+  <button type="submit" class="btn btn-primary" style="margin-top:5px;">Signup</button>
+</a> -->
+<!-- </div> -->
+
+  {% endblock %}

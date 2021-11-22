@@ -1,0 +1,44 @@
+{% extends 'basics.html' %}
+
+{%block css%}
+.mb-3 {
+align-items: center;
+padding-right:25em;
+padding-left:15em;
+margin-top:20px;
+}
+.btn {
+
+margin-left:15em;
+}
+{%endblock%}
+
+{%block body%}
+
+<form action="/signup" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="username" style="color:white">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Choose a unique username" required>
+    </div>
+    <div class="mb-3" style="align-items: center">
+     <label for="fname" class="form-label" style="color:white">Your Name</label>
+     <input type="name" class="form-control" id="fname" name="fname" aria-describedby="Name" required>
+   </div>
+ 
+   <div class="mb-3">
+     <label for="Email" class="form-label" style="color:white">Email address</label>
+     <input type="email" class="form-control" id="Email" name="Email" aria-describedby="email" required>
+     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+   </div>
+   <div class="mb-3">
+    <label for="Password1" class="form-label" style="color:white">Password</label>
+    <input type="password" class="form-control" id="password1" name="password1" required>
+   </div>
+   <div class="mb-3">
+    <label for="password2" class="form-label" style="color:white">Re-enter Password</label>
+    <input type="password" class="form-control" id="password2" name="password2" required>
+   </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+ {% endblock %}

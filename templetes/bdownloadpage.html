@@ -1,0 +1,110 @@
+{% extends 'basics.html' %}
+
+  {% block title %} Download from here {% endblock %}
+
+
+    {% block css %}
+
+    .top-search {
+      margin: 5px 0 10px 0;
+    }
+    .top-search form {
+      background-color: black:
+      padding-right:70px;
+      position:relative;
+
+    }
+    .top-search .field {
+      width:88%;
+      margin-left: 3px;
+      margin-top:2px;
+      background-color: darkgrey
+
+
+    }
+    .top-search .submit{
+      float: right;
+      font-size: 14px;
+      padding:2px 20px;
+      position: absolute;
+      right:8px;
+      top:2px;
+      width:2px%;
+      color: white;
+      background:grey;
+    }
+
+  .col-xs-20 {
+      width:100%;
+      float:left;
+  }
+
+    .text-xs {
+      padding-left: 500px;
+
+    }
+
+    .movie-detail .movie-info-container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 3;
+    padding-bottom: 30px;
+    }
+      .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+div {
+    display: block;
+}
+.col-xs-20 {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 700!important;
+    font-family: Arimo,Arial,Helvetica!important;
+}
+h1 {
+  display: block;
+  margin-block-start:0.67em;
+  margin-block-end:0.67em;
+}
+
+.movie-details .movie-info h2 {
+  line-height:18px;
+  font-size:1.1em;
+  margin-bottom: 20px;
+}
+
+.img{
+  border:3px solid darkgrey;
+  margin-top:5px;
+  width:200px;
+  }
+
+  {% endblock %}
+  {%block body%}
+
+
+<div class="card" style="max-width: 540px; background-color: black; margin-left: 220px; margin-top: 125px;">
+  <div class="row g-0">
+    <div class="col-md-4" >
+      <img  src="/media/{{bdata.bmovie_img}}" class="img rounded-start" alt="adasd" >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body " style="margin-left: 20px; color: darkgrey;">
+        <h2 class="card-title"><b>{{bdata.bmovie_name}}</b></h2>
+        <h5><p class="card-year">{{bdata.bmovie_year}}</p>
+        <p class="card-type">Action</p></h5>
+        Available in :
+        <button type="submit" name="download" style="background-color: darkgrey; border-radius: 10px; font-size: 20px; margin-top: 5px;">360p Download here</button>
+          <button type="submit"  name="download" style="background-color: darkgrey; border-radius: 10px; font-size: 20px; margin-top: 5px; margin-left: 95px;">720p Download here</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {%endblock%}
+

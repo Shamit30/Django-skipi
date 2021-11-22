@@ -1,0 +1,75 @@
+{%extends 'basics.html' %}
+{% block title %} SkipyMovie {% endblock %}
+  
+{% block css %}
+
+.top-search {
+      margin: 5px 0 10px 0;
+    }
+    .top-search form {
+      background-color: black:
+      padding-right:70px;
+      position:relative;
+    }
+    .top-search .field {
+      width:88%;
+      margin-left: 3px;
+      margin-top:2px;
+      background-color: darkgrey
+    }
+    .top-search .submit{
+      float: right;
+      font-size: 14px;
+      padding:2px 20px;
+      position: absolute;
+      right:8px;
+      top:2px;
+      color: white;
+      background:grey;
+}
+
+.column {
+float:center;
+width:16.66%;
+}
+
+    {% endblock %}
+
+    {% block body %}
+
+  <div class="top-search">
+
+    <form class="searchform" action="/searchpage" method="get">
+      <!-- <label for="s" class="assistive-text">Search</label> -->
+      <input type="text" class="field" name="query" id="query" placeholder=" Search movie" style="border-radius:4px">
+        <button type="submit" class="submit" style="border-radius:4px; margin-top:1px; margin-right:10px; ">Search</button>
+    </form>
+
+  </div>
+
+  <h1 class="top-search" style="font-size: 30px; font-weight: bold; text-align: center; color: #ddd;" >Skipy- Watch and Download any movie free </h1>
+
+<hr style="background-color:darkgrey;">
+
+
+<div class="row">
+{% for i in movie %}
+    <div class="column" style="padding:9px; border-bottom:1px solid darkgrey ;">
+      <article style="border:1px solid darkgrey;;">
+          <div class="movie-image">
+              <a style="text-decoration:none" href="downloadpage/{{i.id}}">
+                  <img src="/media/{{i.movie_img}}" style="width:200px; height:100 px; border-bottom:1px solid darkgrey;">
+                  <div class="desc" style="color:darkgrey;">
+                  <h4>{{i.movie_name}}</h4>
+                  <p>{{i.movie_year}}</p>
+                  </div></a>
+          </div>
+      </article>
+</div>
+
+    {% endfor %}
+
+
+
+</div>
+{% endblock %}

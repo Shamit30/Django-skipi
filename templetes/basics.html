@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>{% block title %}   {% endblock %}</title>
+  <style>
+  .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: darkgrey;
+  color: white;
+  text-align: center;
+}
+    {% block css %} 
+    {% endblock %}
+  </style>
+</head>
+
+<body class="container" style="background-color: black;">
+{% load static %}
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" >Skipy</a>
+
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="browsemovies">Browse movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contactus">Contact us</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated%} 
+          welcome! you are logged in {{request.user}}
+          <button class="btn btn-outline-success" type="submit" style="margin-left: 25em;">Logout</button>
+        {% else %}
+          <a href="login">    
+          <button class="btn btn-outline-success" type="submit" style="margin-left:54em; ">Login</button>
+        </a>
+        {%endif%}
+        </ul>
+     
+      </div>
+    </div>
+  </nav> -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">Skipi</a>
+    
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="browsemovies">WebSeries</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="mylist">My list</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="contactus">Contactus</a>
+          </li>
+         
+        </ul>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="nav-item me-2" style="color:darkgrey; font-size: 20px;">
+         welcome! {{request.user}}
+        </div>
+        <form class="d-flex me-2" action="/logout">
+          <button class="btn btn-outline-success" type="submit">Logout</button>
+        </form>
+        {% else %}
+        <form class="d-flex me-2" action="/login">
+          <button class="btn btn-outline-success" type="submit">Login</button>
+        </form>
+        <form class="d-flex me-2" action="/signup">
+          <button class="btn btn-outline-success" type="submit">Signup</button>
+        </form>
+        {%endif%}
+      </div>
+    </div>
+  </nav>
+
+
+{% block body %} {% endblock %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<footer class="footer" style="color:darkgrey; position:fixed; ">
+  <hr style="color:darkgrey;">
+  <p style="text-align:center;">Skipy is a site where you can watch movies online free in HD without annoying ads, just come and enjoy the latest full movies online.<br>
+    You can also download the movies to your pc to watch movies later offline. Our official domain is uwatchfree.as please bookmark it and share it with your friends.</p>
+</footer>
+</body>
+</html>

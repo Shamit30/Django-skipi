@@ -1,0 +1,37 @@
+{% extends 'basics.html' %}
+
+{%block css%}
+
+{%endblock%}
+
+{%block body%}
+<div>
+	 <h3 style="color:grey; margin-left:10em;   margin-top: 15px; ">If any help Reach us out here by typing a query<h3>
+</div>
+<hr style="color:white">
+<form method="post" action="/contactus">
+  {% csrf_token %}
+   <div class="mb-3" style="align-items: center">
+    <label for="name" class="form-label" style="color:white">Name</label>
+    <input type="text" class="form-control" id="name" name="name" aria-describedby="Name">
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label" style="color:white">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" aria-describedby="Email">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+   <div class="mb-3">
+    <label for="number" class="form-label" style="color:white">Mobile Number</label>
+    <input type="text" class="form-control" id="number" name="number" aria-describedby="Number">
+    <div id="NumberHelp" class="form-text">We'll never share your number with anyone else.</div>
+  </div>
+     <div class="mb-3">
+  <label for="desc" class="form-label" style="color:white;">Write your query here:</label>
+  <textarea name="desc" class="form-control" id="desc" rows="3" name="desc"></textarea>
+</div>
+  <button type="submit" class="btn btn-primary" style="margin-bottom: 7px;">Submit</button>
+</form>
+
+{% endblock %}
+

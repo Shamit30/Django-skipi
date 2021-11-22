@@ -1,0 +1,53 @@
+{%extends 'basics.html'%}
+
+{% block title %} search page {% endblock %}
+{%block css %}
+.row {
+float:center;
+width:20%;
+}
+{%endblock%}
+{% block body %}
+{% for movie in data%}
+<div class="column">
+    <h3 class="my-4 border-bottom pb-1" style="color:darkgrey;"><span class="text-muted">Search result for </span>{{request.GET.query}}</h3>
+    <div class="row" style="color:darkgrey;">
+        
+       <div class="column" style="padding:9px;">
+      <article style="border:1px solid darkgrey;">
+          <div class="movie-image">
+                 <a href="downloadpage/{{movie.id}}"> 
+                 <img src="/media/{{movie.movie_image}}" style="width:200px; height:100 px;">
+                  <div class="desc" style="border:1px solid darkgrey;">
+                  <h4 style="color:darkgrey">{{movie.movie_name}}</h4>
+                  <p>{{movie.movie_year}}</p>
+                 </a>
+                  </div>
+          </div>
+      </article>
+    </div>
+{%endfor%}
+</div>
+{% for series in dataweb%}
+<div class="column">
+    <h3 class="my-4 border-bottom pb-1" style="color:darkgrey;"><span class="text-muted">Search result for </span>{{request.GET.queryweb}}</h3>
+    <div class="row" style="color:darkgrey;">
+        
+       <div class="column" style="padding:9px;">
+      <article style="border:1px solid darkgrey;">
+          <div class="movie-image">
+                 <a href="downloadpage/{{series.bid}}"> 
+                 <img src="/media/{{series.bmovie_image}}" style="width:200px; height:100 px;">
+                  <div class="desc" style="border:1px solid darkgrey;">
+                  <h4 style="color:darkgrey">{{series.bmovie_name}}</h4>
+                  <p>{{series.bmovie_year}}</p>
+                 </a>
+                  </div>
+          </div>
+      </article>
+</div>
+{%endfor%}
+    </div>
+
+{% endblock %}
+

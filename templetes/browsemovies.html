@@ -1,0 +1,39 @@
+{% extends 'basics.html' %}
+
+{%block css%} 
+
+
+.column {
+float:center;
+width:16.66%;
+padding:0px;
+}
+
+}
+{%endblock%}
+
+{%block body%}
+
+<form class="d-flex" style="margin-top: 1em;" action="/searchpageseries" method="get">
+        <input class="form-control me-2" style="background-color: darkgray;" name="queryweb" type="search" placeholder="Enter name of WebSeries" >
+        <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+<hr style="color:darkgrey">
+
+<div class="row" style=" border-bottom:1px solid darkgrey;">
+    {% for i in bmovie %}
+<div class="column" style="padding:9px;">
+      <article style="border:1px solid darkgrey;;">
+          <div class="movie-image">
+                  <a style="text-decoration:none; color:darkgrey;" href="bdownloadpage/{{i.bid}}"><img src="/media/{{i.bmovie_img}}" style="width:200px; height:100 px;">
+                  <div class="desc" style="border:1px solid darkgrey">
+                  <h4>{{i.bmovie_name}}</h4>
+                  <p>{{i.bmovie_year}}</p>
+                  </div>
+              </a>
+          </div>
+      </article>
+</div>
+    {%endfor%}
+    </div>
+{% endblock %}
